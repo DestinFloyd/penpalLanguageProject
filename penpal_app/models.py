@@ -6,6 +6,9 @@ class User(models.Model):
     firstName = models.CharField(max_length=50)
     lastName = models.CharField(max_length=50)
     email = models.CharField(max_length=255)
+   
+    def __str__(self):
+        return (self.firstName)
 
 class Language(models.Model):
     id = models.AutoField(primary_key=True)
