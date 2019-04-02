@@ -10,10 +10,13 @@ class User(models.Model):
     def __str__(self):
         return (self.firstName)
 
+
 class Language(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
     averageProficiency = models.IntegerField(default=0)
+    def __str__(self):
+        return (self.name)
 
 class Message(models.Model):
     id = models.AutoField(primary_key=True)
@@ -21,12 +24,17 @@ class Message(models.Model):
     toUser = models.ForeignKey(User, on_delete=models.CASCADE, related_name="messagesRecieved")
     language = models.ForeignKey(Language, on_delete=models.CASCADE, related_name="messagesLanguage")
     text =  models.TextField()
+    def __str__(self):
+        return (self.text)
 
 class Proficiency(models.Model):
     id = models.AutoField(primary_key=True)
     level = models.IntegerField(choices=list(zip(range(1, 11), range(1, 11))), unique=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="users")
     language = models.ForeignKey(Language, on_delete=models.CASCADE, related_name="language")
+    # def __str__(self):
+    #     return (self.)
 
+# make lang name = unique and make prof FK the name of LANG 
 
 

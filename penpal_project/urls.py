@@ -20,4 +20,5 @@ from django.conf.urls import include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('penpal_app.urls')),
+    # url(r'^messages/', include('postman.urls', namespace='postman', app_name='postman')),
 ]
