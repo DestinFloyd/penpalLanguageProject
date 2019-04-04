@@ -38,11 +38,11 @@ class Message(models.Model):
     def __str__(self):
         return (self.text)
 
-    def save(self, *args, **kwargs):
-        if self.fromUser 
+    # def save(self, *args, **kwargs):
+        # if self.fromUser 
         # its not the same lang with same level w/in2
         # https://docs.djangoproject.com/en/2.2/topics/db/models/#field-name-restrictions
-            return # Not a vaild message due to language!
+            # return # Not a vaild message due to language!
 # forms validation 
 # https://docs.djangoproject.com/en/2.1/ref/forms/validation/
 # validation example clear !!
@@ -50,7 +50,7 @@ class Message(models.Model):
 # overlap?
 # Key lookups?
 
-        else:
-            super().save(*args, **kwargs)  
+        # else:
+        #     super().save(*args, **kwargs)  
 
 
