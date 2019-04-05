@@ -28,7 +28,7 @@ class Language(models.Model):
 class Proficiency(models.Model):
     id = models.AutoField(primary_key=True)
     level = models.IntegerField(choices=list(zip(range(1, 11), range(1, 11))), unique=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="users")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="proficiency")
     language = models.ForeignKey(Language, on_delete=models.PROTECT, related_name="language")
     def __str__(self):
         return (self)
