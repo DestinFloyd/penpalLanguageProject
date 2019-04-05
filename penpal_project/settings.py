@@ -25,6 +25,7 @@ SECRET_KEY = 'p(ug@e*(tmc0=5*yqn7e%nyjzfbs!#5*8t(d)f4bc(ha5em%^0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 ALLOWED_HOSTS = []
 
 
@@ -38,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'penpal_app',
-    # 'postman',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
