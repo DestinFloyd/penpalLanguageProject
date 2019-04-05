@@ -24,27 +24,30 @@ class Language(models.Model):
         return (self.name)   
     
 
-
 class Proficiency(models.Model):
     id = models.AutoField(primary_key=True)
-    level = models.IntegerField(choices=list(zip(range(1, 11), range(1, 11))), unique=True)
+    level = models.IntegerField(choices=list(zip(range(1, 11), range(1, 11))))
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="proficiency")
     language = models.ForeignKey(Language, on_delete=models.PROTECT, related_name="language")
-    def __str__(self):
-        return (self)
+
+  
 
 class Message(models.Model):
     id = models.AutoField(primary_key=True)
     fromUser = models.ForeignKey(User, on_delete=models.CASCADE, related_name="messagesSent")
     toUser = models.ForeignKey(User, on_delete=models.CASCADE, related_name="messagesRecieved")
     language = models.ForeignKey(Language, on_delete=models.PROTECT, related_name="messagesLanguage")
-    # validators=[validate_close_prof]
     text =  models.TextField()
     def __str__(self):
         return (self.text)
 
     # def validate_close_prof(self):
-    #     if self.fromUser - self.toUser > 2:
+
+
+
+# userOne = User.objects.filter(id=fromUser).user 
+# userTwo = User.objects.filter(id=toUser).user 
+    #     if User.objects.filter(id=fromUser).user - self.toUser > 2:
     #         raise ValidationError(_('Sorry please pick a penpal with closer proficiency'))
     #     elif self.fromUser - self.toUser < -2:
     #         raise ValidationError(_('Sorry please pick a penpal with closer proficiency')) 
@@ -55,3 +58,5 @@ class Message(models.Model):
     # except ValidationError as e:
     #     non_field_errors = e.message_dict[NON_FIELD_ERRORS]
 
+def check():
+    actualAverage = Proficiency.objects.filter(language = id).aggregate(Avg('level'))
