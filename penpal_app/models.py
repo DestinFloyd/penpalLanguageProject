@@ -41,22 +41,6 @@ class Message(models.Model):
     def __str__(self):
         return (self.text)
 
-    # def validate_close_prof(self):
 
 
 
-# userOne = User.objects.filter(id=fromUser).user 
-# userTwo = User.objects.filter(id=toUser).user 
-    #     if User.objects.filter(id=fromUser).user - self.toUser > 2:
-    #         raise ValidationError(_('Sorry please pick a penpal with closer proficiency'))
-    #     elif self.fromUser - self.toUser < -2:
-    #         raise ValidationError(_('Sorry please pick a penpal with closer proficiency')) 
-    # def save(self, *args, **kwargs):
-    #     super(MyModel, self).save(*args, **kwargs)    
-    # try: 
-    #     validate_close_prof(self)
-    # except ValidationError as e:
-    #     non_field_errors = e.message_dict[NON_FIELD_ERRORS]
-
-def check():
-    actualAverage = Proficiency.objects.filter(language = id).aggregate(Avg('level'))
